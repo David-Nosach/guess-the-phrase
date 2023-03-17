@@ -15,6 +15,7 @@ const reset = document.querySelector('#reset')
 
 // New additions
 const phraseUl = document.querySelector('#phrase ul');
+const uls = document.querySelector('.uls')
 
 const heartLost = document.querySelectorAll('.tries img')[missed];
 const imagesHearts = heartLost.childNodes;
@@ -61,8 +62,12 @@ function addPhraseToDisplay(arr) {
         } else {
             li.className = 'letter';
         }
+      function removeLi(){
+          li.remove()
+      }
     }
 };
+
 addPhraseToDisplay(phraseArray);
 
 //Check letter 
@@ -132,20 +137,20 @@ function checkWin(){
 //New Code
 
 function remover(){
-    phraseUl.remove()
+   li.remove()
 }
 
 function resetClicker(){
 
-    phraseUl.remove()
-console.log(getRandomPhraseAsArray(phrases));
-let phraseArray = getRandomPhraseAsArray(phrases);
+    uls.parentNode.removeChild(uls)
+// console.log(getRandomPhraseAsArray(phrases));
+// let phraseArray = getRandomPhraseAsArray(phrases);
     
 
     addPhraseToDisplay(phraseArray);
 }
 
-reset.addEventListener('click', resetClicker)
+reset.addEventListener('click', removeLi())
 
 // New Code
 // New Code
