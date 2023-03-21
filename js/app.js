@@ -18,6 +18,7 @@ const phraseUl = document.querySelector('#phrase ul');
 const uls = document.querySelector('.uls')
 
 const heartLost = document.querySelectorAll('.tries img')[missed];
+const heartLives = document.querySelectorAll('.tries img')
 const imagesHearts = heartLost.childNodes;
 
 // const li = document.querySelectorAll('li');
@@ -65,21 +66,7 @@ function addPhraseToDisplay(arr) {
         } else {
             li.className = 'letter';
         }
-
-// new code
-
-   
     }
-    // console.log(phraseUl.children);
-    // reset.addEventListener('click', function (){
-    //     let some = getRandomPhraseAsArray(phrases);
-    //     console.log(some);
-          
-          
-        
-    //     })  
- 
-
 };
 
 addPhraseToDisplay(phraseArray);
@@ -120,12 +107,6 @@ qwerty.addEventListener('click', function (e) {
 
 //checkWin Function
 
-
-
-
-
-
-
 function checkWin(){
     
     const letter = document.getElementsByClassName('letter');
@@ -150,22 +131,12 @@ function checkWin(){
 }
 
 //New Code
-console.log(uls.children);
+
 
 function remover(){
   
-    const kids = uls.childNodes
-    console.log(kids);
-    // for (i = 0; i < kids.length; i++) {
-    //     kids[i].remove()
-    // }
-
-    // CHeck this out TOMORROW ---------------------------------
-// while (uls.firstChild) {
-//     uls.removeChild(uls.firstChild)
-// }
-
-
+missed = 0; 
+// Reset Phrase
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -175,12 +146,44 @@ function remover(){
     removeAllChildNodes(uls)
     let phraseArray = getRandomPhraseAsArray(phrases);
     addPhraseToDisplay(phraseArray);
+
+// clear keyboard    
+const buttons = document.querySelectorAll("button")
+buttons.forEach(butt => {
+    butt.classList.remove('chosen');
+    butt.disabled = false;
+
+    heartLives.forEach(heart => {
+        heart.src = 'images/liveHeart.png';
+    })
+    // heartLost.src = 'images/liveHeart.png';
+})
+
+// buttons.classList.remove('chosen');
+        // buttons.disabled = false;
+
+
+
+
+
     // addPhraseToDisplay(phraseArray);
     // getRandomPhraseAsArray(phrases);
     // console.log(phraseUL);
     // kids.forEach(kid => {
     //     kid.remove()
     // })
+
+        // const kids = uls.childNodes
+    // console.log(kids);
+    // for (i = 0; i < kids.length; i++) {
+    //     kids[i].remove()
+    // }
+
+    // CHeck this out TOMORROW ---------------------------------
+// while (uls.firstChild) {
+//     uls.removeChild(uls.firstChild)
+// }
+
 }
 
 function resetClicker(){
