@@ -27,6 +27,30 @@ const imagesHearts = heartLost.childNodes;
 btn__reset.addEventListener('click', function () {
     overlay.style.display = 'none';
 
+    missed = 0; 
+// Reset Phrase
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+   
+    removeAllChildNodes(uls)
+    let phraseArray = getRandomPhraseAsArray(phrases);
+    addPhraseToDisplay(phraseArray);
+
+// clear keyboard    
+const buttons = document.querySelectorAll("button")
+buttons.forEach(butt => {
+    butt.classList.remove('chosen');
+    butt.disabled = false;
+
+    heartLives.forEach(heart => {
+        heart.src = 'images/liveHeart.png';
+    })
+    
+})
+
 });
 
 //Phrases
@@ -130,247 +154,6 @@ function checkWin(){
 
 }
 
-//New Code
-
-
-function remover(){
-  
-missed = 0; 
-// Reset Phrase
-    function removeAllChildNodes(parent) {
-        while (parent.firstChild) {
-            parent.removeChild(parent.firstChild);
-        }
-    }
-   
-    removeAllChildNodes(uls)
-    let phraseArray = getRandomPhraseAsArray(phrases);
-    addPhraseToDisplay(phraseArray);
-
-// clear keyboard    
-const buttons = document.querySelectorAll("button")
-buttons.forEach(butt => {
-    butt.classList.remove('chosen');
-    butt.disabled = false;
-
-    heartLives.forEach(heart => {
-        heart.src = 'images/liveHeart.png';
-    })
-    // heartLost.src = 'images/liveHeart.png';
-})
-
-// buttons.classList.remove('chosen');
-        // buttons.disabled = false;
-
-
-
-
-
-    // addPhraseToDisplay(phraseArray);
-    // getRandomPhraseAsArray(phrases);
-    // console.log(phraseUL);
-    // kids.forEach(kid => {
-    //     kid.remove()
-    // })
-
-        // const kids = uls.childNodes
-    // console.log(kids);
-    // for (i = 0; i < kids.length; i++) {
-    //     kids[i].remove()
-    // }
-
-    // CHeck this out TOMORROW ---------------------------------
-// while (uls.firstChild) {
-//     uls.removeChild(uls.firstChild)
-// }
-
-}
-
-function resetClicker(){
-
-   
-// console.log(getRandomPhraseAsArray(phrases));
-// let phraseArray = getRandomPhraseAsArray(phrases);
     
 
-    addPhraseToDisplay(phraseArray);
-}
 
-reset.addEventListener('click', remover)
-    // console.log(uls.children)
-
-// New Code
-// New Code
-
-// startGame.addEventListener('click', () => {
-
-// if (overlay.className.contains('lose') || overlay.className.contains('win') ) {
-//     //overlay
-//     overlay.style.display = 'none';
-//     //keyboard
-//     for (let i = 0 ; i < arrayButtons.length; i++) {
-//         arrayButtons[i].disabled = false;
-//         allButtons[i].removeAttribute('class');
-//     }
-//     //displayed phrase
-//     while(charactersLI.firstChild) {
-//         charactersLI.removeChild(charactersLI.firstChild);
-//     }
-//     phraseArray = getRandomPhraseAsArray(phrases)
-//     addPhraseToDisplay(phraseArray);
-//     //heart
-//     for ( i = 0; i < heartQuerAll.length; i++ ) {
-//         const heartAll = heartQuerAll[i];
-//         heartAll.setAttribute('src','images/liveHeart.png');
-//     }
-//     missed = 0;
-// } else {
-//     overlay.style.display = 'none';
-// }
-// });
-
-
-
-
-
-
-
-// function missy() {
-//     missed;
-// };
-
-// NEw CODE YO
-
-// let btn = document.createElement("button");
-// btn.innerHTML = "Subscribe";
-// document.body.appendChild(btn);
-
-
-
-
-
-
-// btn.addEventListener('click', function onClick (e) {
-//   document.body.style.backgroundColor = 'red';
-//   document.body.style.backgroundColor = 'black';
-    
-//   for ( i = 0; i < heartLost.length; i++ ) {
-//     const heartAll = heartLost[i];
-//     heartAll.setAttribute('src','images/liveHeart.png');
-// }
-//   missed = 0; 
-    
-// });
-
-
-
-// const keys = document.getElementById('qwerty');
-//     const allButtons = qwerty.querySelectorAll('.keyrow > button');
-//     const arrayButtons = Array.from(allButtons);
-        
-
-// btnn.addEventListener('click', () => {
-//     for (let i = 0 ; i < arrayButtons.length; i++) {
-//         arrayButtons[i].disabled = false;
-//         allButtons[i].removeAttribute('class');
-//     }
-// }
-
-//     if (overlay.className.contains('lose') || overlay.className.contains('win') ) {
-        //overlay
-        // overlay.style.display = 'none';
-        //keyboard
-        // for (let i = 0 ; i < arrayButtons.length; i++) {
-        //     arrayButtons[i].disabled = false;
-        //     allButtons[i].removeAttribute('class');
-        // }
-        //displayed phrase
-        // while(charactersLI.firstChild) {
-        //     charactersLI.removeChild(charactersLI.firstChild);
-        // }
-        // phraseArray = getRandomPhraseAsArray(phrases)
-        // addPhraseToDisplay(phraseArray);
-        //heart
-//         for ( i = 0; i < heartQuerAll.length; i++ ) {
-//             const heartAll = heartQuerAll[i];
-//             heartAll.setAttribute('src','images/liveHeart.png');
-//         }
-//         missed = 0;
-//     } else {
-//         overlay.style.display = 'none';
-//     }
-//     });
-
-
-// document.body.appendChild(btnn);
-
-
-
-// function clearBoard() {
-
-
-// }
-
-// getRandomPhraseAsArray(phrases);
-//     addPhraseToDisplay(phraseArray);
-//     checkLetter(button);
-//     checkWin();
-
-
-
-// alert("Button is clicked");
-// const allButtons = keys.querySelectorAll('.keyrow > button');
-//     const arrayButtons = Array.from(allButtons);
-
-
-// Start and Reset button
-
-// startGame.style.cursor = 'pointer';
-
-// startGame.addEventListener('click', () => {
-
-//     if (overlay.classList.contains('lose') || overlay.classList.contains('win') ) {
-//         //overlay
-//         overlay.style.display = 'none';
-//         //keyboard
-//         for (let i = 0 ; i < arrayButtons.length; i++) {
-//             arrayButtons[i].disabled = false;
-//             allButtons[i].removeAttribute('class');
-//         }
-//         //displayed phrase
-//         while(charactersLI.firstChild) {
-//             charactersLI.removeChild(charactersLI.firstChild);
-//         }
-//         phraseArray = getRandomPhraseAsArray(phrases)
-//         addPhraseToDisplay(phraseArray);
-//         //heart
-//         for ( i = 0; i < heartQuerAll.length; i++ ) {
-//             const heartAll = heartQuerAll[i];
-//             heartAll.setAttribute('src','images/liveHeart.png');
-//         }
-//         missed = 0;
-//     } else {
-//         overlay.style.display = 'none';
-//     }
-// });
-
-// function buttonName() {
-//     if ( checkWin() === 'You lost!' ) {
-//         startGame.innerHTML = 'Try Again!';
-//     } else if ( checkWin() === 'WIN' ) {
-//         startGame.innerHTML = 'Could you guess another time?';
-//     }
-// }
-
-
-// let btn = document.createElement("button");
-        
-// btn.innerHTML = "Subscribe";
-// btn.onclick = function () {
-   
-// phrase.removeChild(' ');
-   
-//     };
-
-
-// document.body.appendChild(btn);
