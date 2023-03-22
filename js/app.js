@@ -9,47 +9,43 @@ const btn__reset = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
 let missed = 0;
 
-//Reset Button code
-const reset = document.querySelector('#reset')
+
 // const phraseUl = document.querySelector('#phrase ul');
 
 // New additions
 const phraseUl = document.querySelector('#phrase ul');
-const uls = document.querySelector('.uls')
-
 const heartLost = document.querySelectorAll('.tries img')[missed];
 const heartLives = document.querySelectorAll('.tries img')
 const imagesHearts = heartLost.childNodes;
 
-// const li = document.querySelectorAll('li');
 //Hide Start Overlay
 
 btn__reset.addEventListener('click', function () {
     overlay.style.display = 'none';
 
-    missed = 0; 
-// Reset Phrase
+    missed = 0;
+    // Reset Phrase
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
         }
     }
-   
-    removeAllChildNodes(uls)
+
+    removeAllChildNodes(phraseUl)
     let phraseArray = getRandomPhraseAsArray(phrases);
     addPhraseToDisplay(phraseArray);
 
-// clear keyboard    
-const buttons = document.querySelectorAll("button")
-buttons.forEach(butt => {
-    butt.classList.remove('chosen');
-    butt.disabled = false;
+    // clear keyboard    
+    const buttons = document.querySelectorAll("button")
+    buttons.forEach(butt => {
+        butt.classList.remove('chosen');
+        butt.disabled = false;
 
-    heartLives.forEach(heart => {
-        heart.src = 'images/liveHeart.png';
+        heartLives.forEach(heart => {
+            heart.src = 'images/liveHeart.png';
+        })
+
     })
-    
-})
 
 });
 
@@ -60,7 +56,7 @@ let phrases = [
     'get swoll',
     'can of whoopass',
     'hakunah my tatas',
-    'you could do it'   
+    'you could do it'
 ];
 
 //Get Random Phrase and split it 
@@ -74,9 +70,6 @@ function getRandomPhraseAsArray(arr) {
 
 let phraseArray = getRandomPhraseAsArray(phrases);
 
-
-
-
 //Display for character input
 
 function addPhraseToDisplay(arr) {
@@ -85,7 +78,7 @@ function addPhraseToDisplay(arr) {
         const li = document.createElement('li');
         li.textContent = arr[i];
         phraseUl.appendChild(li);
-        if (arr[i]=== ' ') {
+        if (arr[i] === ' ') {
             li.className = 'space';
         } else {
             li.className = 'letter';
@@ -103,13 +96,13 @@ function checkLetter(button) {
     let match = null;
     for (i = 0; i < li.length; i++) {
         if (button.textContent === li[i].textContent.toLowerCase()) {
-           li[i].classList.add('show');
+            li[i].classList.add('show');
             match = button.textContent;
         }
     }
 
     return match;
-   
+
 };
 
 // Keyboard Listener
@@ -120,7 +113,7 @@ qwerty.addEventListener('click', function (e) {
         button.classList.add('chosen');
         button.disabled = true;
         const letterFind = checkLetter(button);
-    if (letterFind === null) {
+        if (letterFind === null) {
             const heartLost = document.querySelectorAll('.tries img')[missed];
             heartLost.src = 'images/lostHeart.png';
             missed++;
@@ -131,29 +124,25 @@ qwerty.addEventListener('click', function (e) {
 
 //checkWin Function
 
-function checkWin(){
-    
+function checkWin() {
+
     const letter = document.getElementsByClassName('letter');
     const show = document.getElementsByClassName('show');
     const title = document.querySelector('.title');
-    if(letter.length === show.length) {
+    if (letter.length === show.length) {
         overlay.className = 'win';
         overlay.style.display = 'flex';
         title.textContent = 'You did it!';
-        btn__reset.textContent ="Play Again";
+        btn__reset.textContent = "Play Again";
     } else if (missed > 4) {
         overlay.className = 'lose';
         overlay.style.display = 'flex';
         title.textContent = 'You lost!';
-        btn__reset.textContent ="Play Again";
-        
+        btn__reset.textContent = "Play Again";
+
     }
 
-   
+
 
 
 }
-
-    
-
-
