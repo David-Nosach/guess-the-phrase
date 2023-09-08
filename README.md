@@ -1,2 +1,3 @@
-# game_show_app_proj.6
- project 6
+# guess-the-phrase
+
+ https://david-nosach.github.io/guess-the-phrase/
